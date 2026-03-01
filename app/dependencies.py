@@ -8,7 +8,6 @@ from sqlalchemy.orm import joinedload
 
 from app.database import db_dep
 from app.models import User
-from app.dependencies import get_current_user_jwt
 from app.utils import verify_password, decode_jwt_token
 from app.config import settings
 
