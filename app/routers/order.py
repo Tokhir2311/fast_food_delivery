@@ -17,4 +17,19 @@ async def get_order(session: db_dep, order_id: int):
     return product 
 
 
-@router.post("/create",response_model=OrederCreateRequest)
+@router.post("/create")
+async def create_order(session: db_dep,create_data:OrederCreateRequest,current_user: current_user_dep):
+    order=Order(
+        user_id=create_data.user_id,
+        address_id=create_data.address_id,
+        promocode_id=create_data.promocode_id,
+        branch_id=create_data.branch_id,
+        total_price=create_data.total_price
+
+    )
+
+    session.add(order)
+    session.commit()
+    session.refresh(order)
+
+    return order

@@ -37,7 +37,7 @@ async def register_user(session: db_dep, data: UserRegisterRequest):
     if not existing_user:
         user.is_active = True
         user.is_staff = True
-        user.is_superuser = True
+        user.is_superuser = True 
 
     session.add(user)
     session.commit()
