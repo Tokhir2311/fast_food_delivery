@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.routers import auth_router, product_router, order_router
+from app.routers import auth_router, product_router, order_router,branch_router
 from app.admin.settings import admin
 
 
@@ -10,6 +10,7 @@ app = FastAPI(
 )
 
 app.include_router(auth_router)
+app.include_router(branch_router)
 app.include_router(product_router)
 app.include_router(order_router)
 
