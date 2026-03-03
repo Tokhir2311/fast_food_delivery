@@ -270,6 +270,7 @@ class Notification(BaseModel):
     image_id: Mapped[int] = mapped_column(
         BigInteger, ForeignKey("images.id"), nullable=True
     )
+    name: Mapped[str] = mapped_column(String(100), nullable = False)
     title: Mapped[str] = mapped_column(String(100), nullable=False)
     message: Mapped[str] = mapped_column(Text, nullable=False)
     is_read: Mapped[bool] = mapped_column(Boolean, default=False)

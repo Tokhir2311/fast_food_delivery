@@ -2,8 +2,7 @@ from fastapi import FastAPI
 
 from app.routers import auth_router
 from app.admin.settings import admin
-from app.routers import branch_router
-
+from app.routers import branch_router, notif_router
 
 app = FastAPI(
     title="Foodify delivery service",
@@ -12,5 +11,6 @@ app = FastAPI(
 
 app.include_router(auth_router)
 app.include_router(branch_router)
+app.include_router(notif_router)
 
 admin.mount_to(app=app)
